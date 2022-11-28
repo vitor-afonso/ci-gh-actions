@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    branches: [main]  #on PR merge into main branche and run the jobs
 
 jobs:
   build:
@@ -16,9 +16,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2   # we are using the checkout repository to performe an action. (githb.com/actions) here we can see all repositories
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2 # use the library to setup the type of app we are using (python, go, ruby etc.)
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
